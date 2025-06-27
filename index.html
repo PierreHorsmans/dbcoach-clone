@@ -1,0 +1,222 @@
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBcoach - Der SQL Trainer</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon-aOZbRyzQ.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f1a2a;
+            color: white;
+        }
+        header {
+            background-color: #0c1f4a;
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        header .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        header .logo-text span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .main-container {
+            display: flex;
+            justify-content: center;
+            min-height: calc(100vh - 64px);
+            background: url('assets/Header-BwqI0GLQ.webp') no-repeat center center;
+            background-size: cover;
+            padding: 2rem;
+            position: relative;
+        }
+        .main-container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: white;
+            clip-path: polygon(0 65%, 100% 20%, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+        .content-box {
+            display: flex;
+            flex-direction: row;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 100%;
+            z-index: 2;
+        }
+        .main-left {
+            flex: 1;
+            max-width: 500px;
+        }
+        .main-left img {
+            height: 110px;
+        }
+        .main-left p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: white;
+            white-space: pre-line;
+        }
+        .main-left p a {
+            color: #88f;
+        }
+        .main-right {
+            margin-top: 100px; /* z. B. 40px tiefer */
+            background: rgba(14, 32, 61, 0.95);
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 380px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            font-size: 0.95rem;
+            max-height: 272px; /* oder ein passender Wert wie 550-600px */
+            overflow: hidden;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #1e2a40;
+            margin-bottom: 1.5rem;
+            gap: 2rem;
+        }
+        .tab {
+            padding: 0.5rem 1rem;
+            color: white;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            font-weight: 500;
+        }
+        .tab.active {
+            border-color: white;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group input {
+            width: calc(100% - 12px);
+            padding: 0.6rem;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            border: 2px solid transparent;
+            color: white;
+        }
+        .form-group input:focus {
+            border-color: white;
+            outline: none;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+        .login-btn {
+            padding: 0.4rem 0.8rem;
+            background: #007b7f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .form-footer a {
+            font-size: 0.85rem;
+            color: #ccc;
+            text-decoration: none;
+        }
+        .signup-footer {
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            background: linear-gradient(to right, #0a55a2 0%, #6e2ba9 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 0 0 1rem 1rem;
+            margin: 2rem -2rem -2rem -2rem; /* gleicht padding der .main-right aus */
+        }
+        .signup-footer a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        a {
+            color: #88f;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo-text">
+        <span>DBC</span>
+        <img src="assets/favicon-aOZbRyzQ.ico" alt="Logo" style="height: 24px;">
+        <span>OACH</span>
+    </div>
+</header>
+<div class="main-container">
+    <div class="content-box">
+        <div class="main-left">
+            <h1>DBcoach</h1>
+            <p>Der DBcoach ist eine Web-Anwendung zum Erlernen und
+                Üben von SQL (Structured Query Language). Der DBcoach
+                wurde von Studierenden und Mitarbeitern der Hochschule
+                Kaiserslautern entwickelt und wird aktiv in der Ausbildung
+                von Informatik Studierenden eingesetzt. Der DBcoach ist
+                kostenlos und werbefrei.</p>
+            <img src="assets/Logo_of_Hochschule_Kaiserslautern_Light-DyuGL_ge.webp" alt="Logo Hochschule KL">
+            <p>Wir haben am 15.03.2025 das neue VUE3 Frontend
+                ausgerollt. Das alte Frontend war auch super und wir
+                haben uns alle daran gewöhnt. Nur technische
+                Infrastruktur war veraltet und so mussten wir handeln. Wir
+                hoffen, dass euch das neue Frontend gefällt und ihr euch
+                schnell zurechtfindet. Das alte Frontend läuft noch
+                parallel unter der <a href="#">URL</a>. Aber wir werden es nicht weiter
+                pflegen und irgendwann abschalten.</p>
+        </div>
+        <div class="main-right">
+            <div class="tabs">
+                <div class="tab active">Anmelden</div>
+                <div class="tab">Ausprobieren</div>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="E-Mail">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Passwort">
+            </div>
+            <div class="form-actions">
+                <button class="login-btn">Anmelden</button>
+                <div class="form-footer">
+                    <a href="#">Passwort vergessen?</a>
+                </div>
+            </div>
+            <div class="signup-footer">
+                <span>Du hast noch keinen Account?</span>
+                <a href="#">Account erstellen</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
