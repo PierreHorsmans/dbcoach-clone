@@ -21,7 +21,7 @@ app.post("/api/anmelden", async (req, res) => {
 
   const sql = "INSERT INTO users (email, passwort) VALUES ($1, $2)";
   try {
-    await pool.query(sql, [name, email]);
+    await pool.query(sql, [email, passwort]);
     res.status(200).json({ message: "Erfolgreich gespeichert" });
   } catch (err) {
     console.error("Fehler beim Einfügen:", err);
