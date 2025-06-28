@@ -236,7 +236,7 @@ document.querySelector("#login-form").addEventListener("submit", async function 
     });
 
     const result = await response.json();
-    alert(result.message);
+    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
   } catch (error) {
     alert("Fehler beim Senden der Daten");
     console.error(error);
