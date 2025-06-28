@@ -17,9 +17,9 @@ app.listen(PORT, () => {
 });
 
 app.post("/api/anmelden", async (req, res) => {
-  const { name, email } = req.body;
+  const { email, passwort } = req.body;
 
-  const sql = "INSERT INTO users (name, email) VALUES ($1, $2)";
+  const sql = "INSERT INTO users (email, passwort) VALUES ($1, $2)";
   try {
     await pool.query(sql, [name, email]);
     res.status(200).json({ message: "Erfolgreich gespeichert" });
