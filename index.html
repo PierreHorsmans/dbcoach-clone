@@ -201,10 +201,10 @@
             </div>
             <form id="login-form">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="email" placeholder="E-Mail">
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="E-Mail">
+                    <input type="password" name="passwort" placeholder="Passwort">
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="login-btn">Anmelden</button>
@@ -225,8 +225,8 @@
 document.querySelector("#login-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const name = document.querySelector('input[name="name"]').value;
   const email = document.querySelector('input[name="email"]').value;
+  const passwort = document.querySelector('input[name="passwort"]').value;
 
   try {
     const response = await fetch("https://dbcoach-clone.onrender.com/api/anmelden", {
@@ -234,7 +234,7 @@ document.querySelector("#login-form").addEventListener("submit", async function 
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ passwort, email }),
     });
 
     const result = await response.json();
