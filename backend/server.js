@@ -17,13 +17,12 @@ app.use(bodyParser.json());
 app.post("/api/anmelden", (req, res) => {
   const { name, email } = req.body;
 
-  const sql = "INSERT INTO benutzer (name, email) VALUES (?, ?)";
+  const sql = "INSERT INTO users (name, email) VALUES (?, ?)";
   db.query(sql, [name, email], (err, result) => {
     if (err) {
       console.error("Fehler beim Einfügen:", err);
-      res.status(500).json({ message: "Fehler beim Einfügen in DB" });
-    } else {
-      res.status(200).json({ message: "Erfolgreich gespeichert" });
+      return res.status(500).json({ error: "Fehler beim Speichern" });
     }
+    res.status(200).json({ message: "Erfolgreich gespeichert" });
   });
 });
