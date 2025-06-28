@@ -19,7 +19,3 @@ app.post("/api/anmelden", (req, res) => {
 
   res.status(200).json({ message: "Erfolgreich empfangen" });
 });
-
-app.listen(PORT, () => {
-  console.log(`Server läuft auf Port ${PORT}`);
-});
