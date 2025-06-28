@@ -1,3 +1,5 @@
+const db = require("./db");
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -15,7 +17,13 @@ app.use(bodyParser.json());
 app.post("/api/anmelden", (req, res) => {
   const { name, email } = req.body;
 
-  console.log("Empfangene Daten:", name, email);
-
-  res.status(200).json({ message: "Erfolgreich empfangen" });
+  const sql = "INSERT INTO benutzer (name, email) VALUES (?, ?)";
+  db.query(sql, [name, email], (err, result) => {
+    if (err) {
+      console.error("Fehler beim Einfügen:", err);
+      res.status(500).json({ message: "Fehler beim Einfügen in DB" });
+    } else {
+      res.status(200).json({ message: "Erfolgreich gespeichert" });
+    }
+  });
 });
