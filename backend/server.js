@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-const PORT = process.env.PORT;
+console.log("ENV → PORT variable equals:", process.env.PORT);
+const PORT = process.env.PORT || 3000;
+console.log(`Server läuft auf Port ${PORT}`);
 
 app.use(cors());
 app.use(bodyParser.json());
