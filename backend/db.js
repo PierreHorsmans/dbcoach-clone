@@ -1,18 +1,18 @@
 const mysql = require("mysql2");
 
-const db = mysql.createConnection({
-  host: "db4free.net",
-  user: "pierre",
-  password: "epw4dPsD!",
-  database: "dbcoach"
+const connection = mysql.createConnection({
+  host: "sql112.infinityfree.com",
+  user: "if0_39345328",
+  password: "LomOyzKZyE",
+  database: "if0_39345328_dbcoach"
 });
 
-db.connect(err => {
+connection.connect((err) => {
   if (err) {
-    console.error("Fehler bei der DB-Verbindung:", err);
+    console.error("Verbindungsfehler:", err);
   } else {
-    console.log("Mit MySQL-Datenbank verbunden.");
+    console.log("Verbindung erfolgreich hergestellt.");
   }
 });
 
-module.exports = db;
+module.exports = connection;
