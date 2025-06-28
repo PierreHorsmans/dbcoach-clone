@@ -199,18 +199,20 @@
                 <div class="tab active">Anmelden</div>
                 <div class="tab">Ausprobieren</div>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="E-Mail">
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" placeholder="Passwort">
-            </div>
-            <div class="form-actions">
-                <button class="login-btn">Anmelden</button>
-                <div class="form-footer">
-                    <a href="#">Passwort vergessen?</a>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Name">
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="E-Mail">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-btn">Anmelden</button>
+                    <div class="form-footer">
+                        <a href="#">Passwort vergessen?</a>
+                    </div>
+                </div>
+            </form>
             <div class="signup-footer">
                 <span>Du hast noch keinen Account?</span>
                 <a href="#">Account erstellen</a>
@@ -218,5 +220,31 @@
         </div>
     </div>
 </div>
+
+<script>
+document.querySelector("#login-form").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const name = document.querySelector('input[name="name"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+
+  try {
+    const response = await fetch("https://dbcoach-clone.onrender.com/api/anmelden", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email }),
+    });
+
+    const result = await response.json();
+    alert(result.message);
+  } catch (error) {
+    alert("Fehler beim Senden der Daten");
+    console.error(error);
+  }
+});
+</script>
+
 </body>
 </html>
